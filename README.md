@@ -1,6 +1,8 @@
 # ai-assisted-qa
 
-[![Cucumber](https://github.com/mattmds/ai-assisted-qa/actions/workflows/cucumber.yml/badge.svg)](https://github.com/mattmds/ai-assisted-qa/actions/workflows/cucumber.yml)
+[![Cucumber](https://github.com/mattmds/ai-assited-qa/actions/workflows/cucumber.yml/badge.svg)](https://github.com/mattmds/ai-assited-qa/actions/workflows/cucumber.yml)
+![Ruby 3.3.0](https://img.shields.io/badge/Ruby-3.3.0-CC342D?logo=ruby&logoColor=white)
+![Gemini API](https://img.shields.io/badge/Gemini_API-Google-8E75B2?logo=googlegemini&logoColor=white)
 
 Projeto de automação de testes E2E em **Ruby + Cucumber + Selenium WebDriver** que demonstra o **uso prático de IA no ciclo de QA**: geração de cenários, geração de step definitions e análise de falhas no CI, sempre com revisão humana.
 
