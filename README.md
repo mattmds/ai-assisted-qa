@@ -52,14 +52,32 @@ bundle exec cucumber features/login.feature
 bundle exec rubocop                       # lint
 ```
 
+#### Windows / PowerShell
+
+No PowerShell, defina `CUCUMBER_OUTPUT_ENCODING` antes de executar o Cucumber para evitar o erro `invalid byte sequence in UTF-8`. A variável permanece definida apenas enquanto essa janela do terminal estiver aberta:
+
+```powershell
+$env:CUCUMBER_OUTPUT_ENCODING = 'UTF-8'
+bundle exec cucumber
+```
+
+Para executar um perfil ou um cenário específico, mantenha a variável definida e use, por exemplo:
+
+```powershell
+bundle exec cucumber -p smoke
+bundle exec cucumber --tags "@login_1"
+$env:HEADLESS = "true"
+bundle exec cucumber -p ci
+```
+
 ### Variáveis de ambiente
 
-| Variável | Padrão | Descrição |
-|---|---|---|
-| `BROWSER` | `chrome` | `chrome` ou `firefox` |
-| `HEADLESS` | `false` | `true` para rodar sem interface |
-| `TEST_ENV` | `saucedemo` | Ambiente definido em `config/environments.yml` |
-| `BASE_URL` | (do ambiente) | Sobrescreve a URL base |
+| Variável   | Padrão         | Descrição            |
+|------------|----------------|-----------------------|
+| `BROWSER`  | `chrome`       | `chrome` ou `firefox` |
+| `HEADLESS` | `false`        | `true` para rodar sem interface |
+| `TEST_ENV` | `saucedemo`    | Ambiente definido em `config/environments.yml` |
+| `BASE_URL` | (do ambiente)  | Sobrescreve a URL base |
 
 ### Tags
 

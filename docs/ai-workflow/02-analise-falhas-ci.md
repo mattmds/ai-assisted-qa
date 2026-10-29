@@ -11,7 +11,7 @@ Quando um cenário Cucumber falha no GitHub Actions, investigar logs e stack tra
 1. O Cucumber executa os cenários e gera `results.json` (`bundle exec cucumber -p ci`)
 2. O workflow publica o relatório e os screenshots como artefatos
 3. Em Pull Requests com falha, [`scripts/analyze_failure.rb`](../../scripts/analyze_failure.rb) localiza em cada cenário o primeiro step com status `failed` e extrai feature, cenário, step e mensagem de erro
-4. O resumo (limitado a 5 falhas e 1500 caracteres por erro) é enviado ao modelo
+4. O resumo (limitado a 5 falhas e 1500 caracteres por erro) é enviado ao modelo. A resposta é limitada a 2048 tokens por chamada e continua automaticamente se o Gemini indicar que atingiu esse limite
 5. A resposta é publicada como comentário no PR
 6. Por último, o job falha se os testes falharam, então a análise nunca "esconde" uma falha
 
