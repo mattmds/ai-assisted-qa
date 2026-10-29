@@ -81,6 +81,18 @@ Documentação completa em [`docs/ai-workflow`](./docs/ai-workflow/README.md):
 2. [Análise de falhas no CI](./docs/ai-workflow/02-analise-falhas-ci.md)
 3. [Step definitions com apoio de IA](./docs/ai-workflow/03-step-definitions-ruby.md)
 
+### CI e Quality Gate da branch principal
+
+O fluxo recomendado é desenvolver em uma branch auxiliar e integrar as alterações à `main` por meio de um Pull Request:
+
+1. Ao abrir um Pull Request para `main`, o GitHub Actions executa os testes regressivos. 
+2. O perfil `ci` executa todos os cenários marcados com `@smoke` e gera `results.json`.
+3. O relatório JSON e os screenshots são publicados como artefatos do workflow.
+4. Se os testes falharem em um Pull Request e `GEMINI_API_KEY` estiver disponível, o script envia um resumo das falhas à Gemini API e publica a análise como comentário no Pull Request.
+5. O job termina como falho quando os testes falham. Com o check `cucumber` configurado como obrigatório nas regras da branch `main`, o GitHub bloqueia o merge até que a verificação passe.
+
+Quality Gate: Um push para a branch `integrar-gemini-api` sem Pull Request aberto não inicia o workflow. O evento `pull_request` executa os testes regressivos ao abrir o PR e quando ele recebe novos commits. Como a regra da branch principal exige PR e o check `cucumber`, o fluxo normal para atualizar a `main` é por meio de um PR aprovado pelos testes. O workflow também pode ser iniciado manualmente (`workflow_dispatch`).
+
 ### Configurar a análise de falhas com Gemini
 
 1. Crie uma chave no [Google AI Studio](https://aistudio.google.com/apikey).
