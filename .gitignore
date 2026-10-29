@@ -1,0 +1,14 @@
+# Relatórios e artefatos de execução
+reports/*
+!reports/.gitkeep
+results.json
+
+# Bundler
+.bundle/
+vendor/bundle/
+
+# Ruby / editores
+*.log
+.DS_Store
+.idea/
+.vscode/

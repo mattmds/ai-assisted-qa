@@ -1,0 +1,4 @@
+# URLs por ambiente. Selecione com TEST_ENV=<nome> (padrão: saucedemo).
+# Também é possível sobrescrever diretamente com BASE_URL=<url>.
+saucedemo:
+  base_url: https://www.saucedemo.com

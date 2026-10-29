@@ -1,0 +1,4 @@
+# Profiles do Cucumber. Uso: bundle exec cucumber -p <profile>
+default: --publish-quiet --require features --format pretty --tags "not @wip"
+smoke:   --publish-quiet --require features --format pretty --tags "@smoke and not @wip"
+ci:      --publish-quiet --require features --format pretty --format json --out results.json --tags "@smoke"
