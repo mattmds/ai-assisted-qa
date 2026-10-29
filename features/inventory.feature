@@ -11,7 +11,7 @@ Funcionalidade: Inventory
   Cenário: Listar itens disponíveis no inventário
     Então a lista deve exibir pelo menos um item
 
-  @inventory_2 @smoke
+  @inventory_2 
   Cenário: Verificar se todos os itens possuem o prefixo Sauce Labs
     Então todos os itens devem possuir o prefixo "Sauce Labs"
 
